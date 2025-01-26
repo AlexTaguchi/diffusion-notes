@@ -13,3 +13,5 @@ In generative machine learning, the goal is to model the true underlying probabi
 ![Equation](https://latex.codecogs.com/png.latex?p(x))
 
 where the sum of probabilities across all states *p*(*x*<sub>1</sub>) + *p*(*x*<sub>2</sub>) + ... + *p*(*x*<sub>n</sub>) must equal 1. For example, the probability distribution of a fair coin can be modeled explicitly with two states *p*(*x*<sub>heads</sub>) = 0.5 and *p*(*x*<sub>tails</sub>) = 0.5.
+
+However, most real-world systems cannot be explicitly modeled this way due to the astronomically large number of possible states. For example, modeling the probability distribution of cat images with this approach would require the intractable task of assigning probabilities to every possible cat image. Given that randomization of just 12 pixels in an image results in 12<sub>pixels</sub><sup>256<sub>intensities</sub><sup>3<sub>colors</sub></sup></sup> ≈ 10<sup>86</sup> possible states which is greater than the ~10<sup>80</sup> atoms in the universe, the number of possible cat images is clearly astronomical in size.
