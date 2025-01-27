@@ -20,7 +20,7 @@ where the sum of probabilities across all states *p*(*x*<sub>1</sub>) + *p*(*x*<
 
 However, most real-world systems cannot be explicitly modeled this way due to the astronomically large number of possible states. For example, modeling the probability distribution of cat images with this approach would require the intractable task of assigning probabilities to every possible cat image. Given that randomization of just 12 pixels in an image results in 12<sub>pixels</sub><sup>256<sub>intensities</sub><sup>3<sub>colors</sub></sup></sup> ≈ 10<sup>86</sup> possible states which is greater than the ~10<sup>80</sup> atoms in the universe, the number of possible cat images is clearly astronomical in size.
 
-Thus, the probability distribution must be implicitly modeled with a parameterized function
+Thus, the probability distribution must be implicitly modeled with an approximate parameterized function
 
 ![Equation](https://latex.codecogs.com/png.latex?p_\theta(x))
 
