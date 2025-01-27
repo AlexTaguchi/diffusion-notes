@@ -6,6 +6,10 @@ Notes on machine learning diffusion models
     > *Introduced diffusion for machine learning*
 2) Ho et al. Denoising Diffusion Probabilistic Models (2020)
     > *Popularized diffusion models*
+3) Ramesh et al. Hierarchical Text-Conditional Image Generation with CLIP Latents (2022)
+    > *Revolutionized text-to-image generation with DALL·E 2*
+4) Watson et al. De novo design of protein structure and function with RFdiffusion (2024)
+    > *Revolutionized protein backbone design with RFdiffusion*
 
 ### Background
 In generative machine learning, the goal is to model the **true underlying probability distribution** of some data *x*
@@ -21,3 +25,7 @@ Thus, the probability distribution must be implicitly modeled with a parameteriz
 ![Equation](https://latex.codecogs.com/png.latex?p_\theta(x))
 
 which predicts the **likelihood** of any given state from learned parameters *θ*.
+
+### Gaussian Diffusion
+Data is noised according to schedule
+
