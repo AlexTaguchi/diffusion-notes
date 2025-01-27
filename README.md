@@ -8,7 +8,7 @@ Notes on machine learning diffusion models
     > *Popularized diffusion models*
 3) Ramesh et al. Hierarchical Text-Conditional Image Generation with CLIP Latents (2022)
     > *Revolutionized text-to-image generation with DALL·E 2*
-4) Watson et al. De novo design of protein structure and function with RFdiffusion (2024)
+4) Watson et al. De novo design of protein structure and function with RFdiffusion (2023)
     > *Revolutionized protein backbone design with RFdiffusion*
 
 ### Background
