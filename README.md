@@ -6,9 +6,11 @@ Notes on machine learning diffusion models
     > *Introduced diffusion for machine learning*
 2) Ho et al. Denoising Diffusion Probabilistic Models (2020)
     > *Popularized diffusion models*
-3) Ramesh et al. Hierarchical Text-Conditional Image Generation with CLIP Latents (2022)
+3) Hoogeboom et al. Argmax Flows and Multinomial Diffusion: Learning Categorical Distributions (2021)
+    > *Introduced multinomial diffusion for categorical distributions*
+4) Ramesh et al. Hierarchical Text-Conditional Image Generation with CLIP Latents (2022)
     > *Revolutionized text-to-image generation with DALL·E 2*
-4) Watson et al. De novo design of protein structure and function with RFdiffusion (2023)
+5) Watson et al. De novo design of protein structure and function with RFdiffusion (2023)
     > *Revolutionized protein backbone design with RFdiffusion*
 
 ### Background
