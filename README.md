@@ -12,7 +12,7 @@ Notes on machine learning diffusion models
     > *Revolutionized protein backbone design with RFdiffusion*
 
 ### Background
-In generative machine learning, the goal is to model the **true underlying probability distribution** of some data *x*
+In generative machine learning, the goal is to model the **true underlying probability distribution** of some variable *x*
 
 ![Equation](https://latex.codecogs.com/png.latex?p(x))
 
@@ -27,5 +27,11 @@ Thus, the probability distribution must be implicitly modeled with an approximat
 which predicts the **likelihood** of any given state from learned parameters *θ*.
 
 ### Gaussian Diffusion
-Data is noised according to schedule
+...
 
+### Multinomial Diffusion
+The probabilities of a categorical variable *x* are described by the **categorical probability distribution**
+
+![Equation](https://latex.codecogs.com/png.latex?C(x|p))
+
+where the probabilites of each state *x*<sub>1</sub>, *x*<sub>2</sub>, ... *x*<sub>n</sub> are described by some function *p*. For example, a fair coin would be represented as *C*(*x*<sub>heads</sub>|*p*<sub>heads</sub>=0.5) and *C*(*x*<sub>tails</sub>|*p*<sub>tails</sub>=0.5). If, however, variable *x* is categorical across multiple dimensions
