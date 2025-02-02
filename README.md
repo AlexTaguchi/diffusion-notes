@@ -34,7 +34,7 @@ The probabilities of a single categorical variable *x* are described by a **cate
 
 ![Equation](https://latex.codecogs.com/png.latex?C(x|p))
 
-where the probabilites of each state are described by function *p*. For example, a coin flip would be represented as *C*(*x*|*p*<sub>heads</sub>,*p*<sub>tails</sub>), where *p*<sub>heads</sub> + *p*<sub>tails</sub> = 1. Flipping a coin multiple times would result in a **binomial distribution**
+where the probabilites of each state are described by function *p*. For example, a coin flip would be represented as *C*(*x*|*p*<sub>heads</sub>,*p*<sub>tails</sub>), where *p*<sub>heads</sub> + *p*<sub>tails</sub> = 1. Flipping a coin multiple times results in a **binomial distribution**
 
 ![Equation](https://latex.codecogs.com/png.latex?B(x|p)=\binom{n}{x}p^x(1-p)^{n-x})
 
