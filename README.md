@@ -30,8 +30,20 @@ which predicts the **likelihood** of any given state from learned parameters *θ
 ...
 
 ### Multinomial Diffusion
-The probabilities of a categorical variable *x* are described by the **categorical probability distribution**
+The probabilities of a single categorical variable *x* are described by a **categorical distribution**
 
 ![Equation](https://latex.codecogs.com/png.latex?C(x|p))
 
-where the probabilites of each state *x*<sub>1</sub>, *x*<sub>2</sub>, ... *x*<sub>n</sub> are described by some function *p*. For example, a fair coin would be represented as *C*(*x*<sub>heads</sub>|*p*<sub>heads</sub>=0.5) and *C*(*x*<sub>tails</sub>|*p*<sub>tails</sub>=0.5). If, however, variable *x* is categorical across multiple dimensions
+where the probabilites of each state are described by function *p*. For example, a coin flip would be represented as *C*(*x*|*p*<sub>heads</sub>,*p*<sub>tails</sub>), where *p*<sub>heads</sub> + *p*<sub>tails</sub> = 1. Flipping a coin multiple times would result in a **binomial distribution**
+
+![Equation](https://latex.codecogs.com/png.latex?B(x|p)=\binom{n}{x}p^x(1-p)^{n-x})
+
+where the probability of any state of *x* is calculated from the probability *p* of that state occuring and the total number of coin flips *n*. For example, the probability of observing 2 heads and 1 tails is
+
+![Equation](https://latex.codecogs.com/png.latex?\binom{3}{2}0.5^2(1-0.5)^{3-2}=\frac{3!}{2!(3-2)!}0.5^2(0.5)^{1}=0.375)
+
+Rolling a dice with more than 2 possible states requires a more general **multinomial distribution**
+
+![Equation](https://latex.codecogs.com/png.latex?M(x|p))
+
+where the individual categorical probability distributions are no longer restricted by number of possible states or events.
