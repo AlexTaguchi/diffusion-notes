@@ -38,12 +38,12 @@ where the probabilites of each state are described by function *p*. For example,
 
 ![Equation](https://latex.codecogs.com/png.latex?B(x|p)=\binom{n}{x}p^x(1-p)^{n-x})
 
-where the probability of any state of *x* is calculated from the probability *p* of that state occuring and the total number of coin flips *n*. For example, the probability of observing 2 heads and 1 tails is
+where the probability of any state of *x* is calculated from the probability *p* of that state occuring once and the total number of coin flips *n*. For example, the probability of observing 2 heads and 1 tails is
 
 ![Equation](https://latex.codecogs.com/png.latex?\binom{3}{2}0.5^2(1-0.5)^{3-2}=\frac{3!}{2!(3-2)!}0.5^2(0.5)^{1}=0.375)
 
-Rolling a dice with more than 2 possible states requires a more general **multinomial distribution**
+Rolling a dice with more than 2 sides requires a more general **multinomial distribution**
 
 ![Equation](https://latex.codecogs.com/png.latex?M(x|p))
 
-where the individual categorical probability distributions are no longer restricted by number of possible states or events.
+where there are no longer any restrictions on the number of possible states or events, so long as all events sample from the same categorical distribution.
