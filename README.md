@@ -32,6 +32,7 @@ which predicts the **likelihood** of any given state from learned parameters *θ
 ...
 
 ### Multinomial Diffusion
+#### Statistics
 The probabilities of a single categorical variable *x* are described by a **categorical distribution**
 
 ![Equation](https://latex.codecogs.com/png.latex?C(x|p))
@@ -49,3 +50,19 @@ Rolling a dice with more than 2 sides requires a more general **multinomial dist
 ![Equation](https://latex.codecogs.com/png.latex?M(x|p))
 
 where there are no longer any restrictions on the number of possible states or events, so long as all events sample from the same categorical distribution.
+
+#### Diffusion
+
+The forward diffusion noising process for a one-hot encoded categorical variable *x* with *K* categories is
+
+![Equation](https://latex.codecogs.com/png.latex?q(x_t|x_{t-1})=C(x_t|(1-\beta_t)x_{t-1}+\beta_t/K))
+
+where the probability distribution of state *x<sub>t</sub>* is computed as the corruption of state *x<sub>t-1</sub>* with the uniform probability distribution *1/K* by an amount determined by $\beta_t$. If *x* represents a system of multiple one-hot encodings all sampling from the same categorical distribution then technically *C* becomes *M*, but *C* is retained for clarity and consistency with the literature. Since the diffusion process forms a Markov chain, the probability of any *x<sub>t</sub>* can be directly computed from *x*<sub>0</sub> as
+
+![Equation](https://latex.codecogs.com/png.latex?q(x_t|x_0)=C(x_t|\bar{\alpha}_tx_0+(1-\bar{\alpha}_t)/K))
+
+![Equation](https://latex.codecogs.com/png.latex?\alpha_t=1-\beta_t)
+
+![Equation](https://latex.codecogs.com/png.latex?\bar{\alpha}_t=\prod_{\tau=1}^{t}\alpha_{\tau})
+
+where ![Equation](https://latex.codecogs.com/png.latex?\bar{\alpha}_t) approaches zero for large *t* in the noising process.
