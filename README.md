@@ -51,15 +51,15 @@ Rolling a dice with more than 2 sides requires a more general **multinomial dist
 
 where there are no longer any restrictions on the number of possible states or events, so long as all events sample from the same categorical distribution.
 
-#### Diffusion
+#### Forward Process
 
 The forward diffusion noising process for a one-hot encoded categorical variable *x* with *K* categories is
 
-![Equation](https://latex.codecogs.com/png.latex?q(x_t|x_{t-1})=C(x_t|(1-\beta_t)x_{t-1}+\beta_t/K))
+![Equation](https://latex.codecogs.com/png.latex?q(x_t|x_{t-1})=M(x_t|(1-\beta_t)x_{t-1}+\beta_t/K))
 
-where the probability distribution of state *x<sub>t</sub>* is computed as the corruption of state *x<sub>t-1</sub>* by the $\beta_t$ weighted uniform probability distribution *1/K*. If *x* represents a system of multiple one-hot encodings all sampling from the same categorical distribution then technically *C* becomes *M*, but *C* is retained for clarity and consistency with the literature. Since the diffusion process forms a Markov chain, the probability of any *x<sub>t</sub>* can be directly computed from *x*<sub>0</sub> as
+where the probability distribution of state *x<sub>t</sub>* is computed as the corruption of state *x<sub>t-1</sub>* by the $\beta_t$ weighted uniform probability distribution prior *1/K*. Since the diffusion process forms a Markov chain, the probability of any *x<sub>t</sub>* can be directly computed from *x*<sub>0</sub> as
 
-![Equation](https://latex.codecogs.com/png.latex?q(x_t|x_0)=C(x_t|\bar{\alpha}_tx_0+(1-\bar{\alpha}_t)/K))
+![Equation](https://latex.codecogs.com/png.latex?q(x_t|x_0)=M(x_t|\bar{\alpha}_tx_0+(1-\bar{\alpha}_t)/K))
 
 where
 
@@ -68,3 +68,23 @@ where
 ![Equation](https://latex.codecogs.com/png.latex?\bar{\alpha}_t=\prod_{\tau=1}^{t}\alpha_{\tau})
 
 such that ![Equation](https://latex.codecogs.com/png.latex?\bar{\alpha}_t) approaches zero for large *t* in the noising process.
+
+#### Reverse Process
+
+The reverse diffusion denoising process is defined by a multinomial posterior
+
+![Equation](https://latex.codecogs.com/png.latex?p(x_{t-1}|x_t,x_0)=M(x_{t-1}|\theta(x_t,x_0)))
+
+where
+
+![Equation](https://latex.codecogs.com/png.latex?\theta(x_t,x_0)=\frac{\tilde{\theta}}{\sum_{k=1}^{K}\tilde{\theta}_k})
+
+![Equation](https://latex.codecogs.com/png.latex?\tilde{\theta}(x_t,x_0)=\left[\bar{\alpha}_{t-1}x_0+(1-\bar{\alpha}_{t-1})/K\right]\odot\left[\bar{\alpha}_tx_t+(1-\bar{\alpha}_t)/K\right])
+
+such that element-wise multiplication of multinomial distributions for *x<sub>t</sub>* and *x*<sub>0</sub> results in ![Equation](https://latex.codecogs.com/png.latex?\tilde{\theta}), which is then normalized into a valid probability distribution $\theta$ for categories *K*. The problem is *x*<sub>0</sub> is unknown but can be approximated as
+
+![Equation](https://latex.codecogs.com/png.latex?\hat{x}_0=\mu(x_t,t))
+
+where neural network $\mu$ predicts ![Equation](https://latex.codecogs.com/png.latex?\hat{x}_0) which is softmaxed to ensure all non-negative numbers that sum to 1. This prediction is then used in place of *x*<sub>0</sub> in the reverse diffusion process. $\mu$ can be learned by minimizing the KL-divergence between the predicted and actual posterior distributions
+
+![Equation](https://latex.codecogs.com/png.latex?D_{\text{KL}}(p(x_{t-1}|x_t,x_0)||p(x_{t-1}|x_t,\hat{x}_0)))
