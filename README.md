@@ -87,4 +87,4 @@ such that element-wise multiplication of multinomial distributions for *x<sub>t<
 
 where neural network $\mu$ predicts ![Equation](https://latex.codecogs.com/png.latex?\hat{x}_0) which is softmaxed to ensure all non-negative numbers that sum to 1. This prediction is then used in place of *x*<sub>0</sub> in the reverse diffusion process. $\mu$ can be learned by minimizing the KL-divergence between the predicted and actual posterior distributions
 
-![Equation](https://latex.codecogs.com/png.latex?D_{\text{KL}}(p(x_{t-1}|x_t,x_0)||p(x_{t-1}|x_t,\hat{x}_0)))
+![Equation](https://latex.codecogs.com/png.latex?D_{\text{KL}}(p(x_{t-1}|x_t,x_0)||p(x_{t-1}|x_t,\hat{x}_0))=\sum_{k}\theta(x_t,x_0)_k\log\frac{\theta(x_t,x_0)_k}{\theta(x_t,\hat{x}_0)_k})
